@@ -1,5 +1,7 @@
 # Perceptual Audio Hashing for IoT Sound Event Detection
 
+**English** | [Русский](README.ru.md)
+
 Reference implementation for a bachelor's thesis on compact perceptual audio
 hashing. Instead of transmitting raw audio, an edge device computes a small
 fixed-length hash from MFCC statistics and uses it to classify sound events.
@@ -36,14 +38,14 @@ Train on folds 1–3, test on folds 4–5 (the standard ESC-50 split).
 
 ## Results
 
-Accuracy with 95% Wilson confidence intervals (test set = folds 4–5):
+Accuracy on the test set (folds 4–5):
 
-| Config | Method | Accuracy | 95% CI | k / n | Random baseline |
-|---|---|---:|---:|---:|---:|
-| ESC-10 | float (1-NN, L2) | 56.2% | [48.5; 63.7] | 90/160 | 10.0% |
-| ESC-10 | binary (80-bit) | 43.8% | [36.3; 51.5] | 70/160 | 10.0% |
-| ESC-50 | float (1-NN, L2) | 29.1% | [26.1; 32.4] | 233/800 | 2.0% |
-| ESC-50 | binary (80-bit) | **10.4%** | [8.4; 12.7] | 83/800 | 2.0% |
+| Config | Method | Accuracy | k / n | Random baseline |
+|---|---|---:|---:|---:|
+| ESC-10 | float (1-NN, L2) | 56.2% | 90/160 | 10.0% |
+| ESC-10 | binary (80-bit) | 43.8% | 70/160 | 10.0% |
+| ESC-50 | float (1-NN, L2) | 29.1% | 233/800 | 2.0% |
+| ESC-50 | binary (80-bit) | **10.4%** | 83/800 | 2.0% |
 
 Binarization costs ~12 points on ESC-10 but ~19 points on ESC-50: a single
 80-bit prototype per class stops separating the 50 spectrally similar classes,
@@ -95,13 +97,13 @@ python3 experiment.py --no-cache
 ## Repository layout
 
 ```
-experiment.py            Full pipeline + evaluation (single entry point)
-features_cache.npz       Precomputed 80-dim features for all 2000 clips
-ESC-50/meta/esc50.csv    Labels and fold assignments (audio is not committed)
+experiment.py              Full pipeline + evaluation (single entry point)
+features_cache.npz         Precomputed 80-dim features for all 2000 clips
+ESC-50/meta/esc50.csv      Labels and fold assignments (audio is not committed)
 scripts/download_esc50.sh  Fetch the raw audio (no git submodule)
-results/                 Per-class and per-subset accuracy CSVs, regenerated on each run
+results/                   Per-class and per-subset accuracy CSVs, regenerated on each run
 requirements.txt
-LICENSE                  MIT (code); ESC-50 is CC BY-NC 3.0, see LICENSE
+LICENSE                    MIT (code); ESC-50 is CC BY-NC 3.0, see LICENSE
 ```
 
 ## License and attribution
