@@ -1,0 +1,11 @@
+true,correct,total,accuracy
+dog,14,16,0.875
+sneezing,13,16,0.8125
+rooster,11,16,0.6875
+sea_waves,11,16,0.6875
+crackling_fire,10,16,0.625
+crying_baby,9,16,0.5625
+helicopter,9,16,0.5625
+rain,6,16,0.375
+clock_tick,4,16,0.25
+chainsaw,3,16,0.1875

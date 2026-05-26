@@ -1,0 +1,15 @@
+# ESC-50 audio (1.7 GB) — fetched by scripts/download_esc50.sh, never committed.
+# The labels file ESC-50/meta/esc50.csv and the feature cache ARE committed,
+# so the experiment runs without downloading the audio.
+ESC-50/audio/
+ESC-50-master/
+esc50.zip
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# OS
+.DS_Store
